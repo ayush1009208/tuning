@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@/styles/BigInfo.module.css';
+import styles from '@/styles/biginfo.module.css';
 import Image from 'next/image';
 const BigInfo = ({ imgSrc, imgAlt, header, description }) => {
   return (
