@@ -7,7 +7,7 @@ export default function RequestAQuote() {
     <>
       <Header />
       <main>
-        <h1>Request a Quote</h1>
+      <h1 style={{ textAlign: 'center', margin: '2rem 0', fontSize:"50px" }}>Request a Quote</h1>
         <QuoteForm />
       </main>
       <Footer />

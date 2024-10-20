@@ -1,44 +1,35 @@
+/* Define dark mode colors */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --link-color: #1a73e8; /* Custom link color */
-  --link-hover-color: #4CAF50; /* Hover effect for links */
-  --border-color: #e0e0e0; /* Border color for light theme */
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --link-color: #4CAF50;
+  --link-hover-color: #66bb6a;
+  --border-color: #333; /* Border color for dark theme */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --link-color: #4CAF50;
-    --link-hover-color: #66bb6a;
-    --border-color: #333; /* Border color for dark theme */
-  }
-}
-
+/* Global styles for dark mode */
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
+  color: var(--foreground); /* Use dark mode variables */
   background: var(--background);
   font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition between themes */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
+/* Reset all elements */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+/* Link styles in dark mode */
 a {
   color: var(--link-color);
   text-decoration: none;
@@ -46,21 +37,17 @@ a {
 }
 
 a:hover {
-  color: var(--link-hover-color); /* Change color on hover */
+  color: var(--link-hover-color); /* Hover effect */
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
+/* Horizontal rule styles */
 hr {
   border: none;
   border-top: 1px solid var(--border-color);
   margin: 1.5rem 0;
 }
 
+/* Button styles */
 button {
   background-color: var(--link-color);
   color: white;
@@ -76,8 +63,7 @@ button:hover {
   background-color: var(--link-hover-color); /* Subtle hover effect */
 }
 
-/* globals.css */
-
+/* Card pack animation */
 .cardsPack {
   opacity: 0; /* Initially hidden */
   transform: translateY(50px); /* Slightly moved down */
@@ -88,5 +74,3 @@ button:hover {
   opacity: 1; /* Fade in */
   transform: translateY(0); /* Move to original position */
 }
-
-
