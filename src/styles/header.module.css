@@ -1,0 +1,74 @@
+.header {
+  background-color: #2a2a2a; /* Darker shade for subtle elegance */
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  position: sticky; /* Sticks the navbar to the top on scroll */
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center elements vertically */
+  max-width: 1200px; /* Limit navbar width for larger screens */
+  margin: 0 auto;
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem; /* Better spacing between items */
+}
+
+.navItem {
+  margin-right: 0;
+}
+
+.navLink {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+  position: relative; /* For underline animation */
+}
+
+.navLink::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #4CAF50; /* Subtle underline effect with color */
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.navLink:hover::after {
+  width: 100%; /* Full-width underline on hover */
+}
+
+.navLink:hover {
+  color: #4CAF50; /* Smooth color change on hover */
+}
+
+/* For responsiveness on mobile devices */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+  }
+
+  .navList {
+    flex-direction: column;
+    align-items: center; /* Center items in the column layout */
+    gap: 1rem;
+  }
+
+  .header {
+    padding: 0.75rem 1.5rem; /* Reduce padding for mobile screens */
+  }
+}

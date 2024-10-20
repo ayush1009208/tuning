@@ -1,0 +1,88 @@
+.servicesContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.servicesGrid {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap */
+  gap: 20px; /* Space between cards */
+  justify-content: center; /* Center cards */
+  width: 100%;
+}
+
+/* Service Card Styles */
+.serviceCard {
+  flex: 0 1 calc(33.33% - 20px); /* 3 cards per row, accounting for gap */
+  max-width: calc(33.33% - 20px); /* 3 cards per row, accounting for gap */
+  box-sizing: border-box;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Stack image and text */
+  background-color: #fff;
+}
+
+/* Image section */
+.serviceCard img {
+  width: 100%;
+  height: 50%; /* Image takes upper half */
+  object-fit: cover; /* Ensure the image covers the entire area without distortion */
+}
+
+/* Text section */
+.serviceCard .textContent {
+  padding: 15px;
+  background-color: #f4f4f4;
+  height: 50%; /* Text takes lower half */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center text */
+}
+.centerHeader{
+  text-align: center;
+font-size: 2.5rem;
+margin-bottom: 2rem
+}
+.serviceCard .textContent h3 {
+  margin: 0 0 10px; /* Margin bottom only */
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.serviceCard .textContent p {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .serviceCard {
+    flex: 0 1 calc(50% - 20px); /* 2 cards per row on tablets */
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceCard {
+    flex: 0 1 100%; /* Full width on mobile */
+    max-width: 100%;
+  }
+}
+
+/* Additional styles for very small screens */
+@media (max-width: 480px) {
+  .serviceCard {
+    padding: 1rem; /* Reduce padding on very small screens */
+  }
+
+  .serviceCard .textContent h3 {
+    font-size: 1.3rem; /* Smaller title */
+  }
+
+  .serviceCard .textContent p {
+    font-size: 0.9rem; /* Smaller description */
+  }
+}

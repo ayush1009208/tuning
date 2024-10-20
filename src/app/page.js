@@ -1,95 +1,60 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client"; // Add this line to mark the component as a Client Component
+
+import React, { useEffect, useRef } from 'react';
+import Header from '../components/Header';
+import HeroSection from '../components/HeroSection';
+import Footer from '../components/Footer';
+import OurServices from '@/components/ourservices';
+import BigInfo from '@/components/biginfo';
+import CardsPack from '@/components/cardspack';
+import '../styles/globals.css'; 
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const cardsPackRef = useRef(null); // Create a ref for the CardsPack section
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible'); // Add visible class to trigger animation
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
+      });
+    });
+
+    const currentRef = cardsPackRef.current; // Get the current ref
+    if (currentRef) {
+      observer.observe(currentRef); // Observe the CardsPack section
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef); // Clean up observer on unmount
+      }
+    };
+  }, []);
+
+  return (
+    <>
+      <Header />
+      <HeroSection />
+      <OurServices />
+      
+      <h1 style={{ textAlign: 'center', margin: '2rem 0', fontSize: '50px' }}>Welcome to Our Services</h1>
+      
+      <BigInfo 
+        imgSrc="/images/pexels-georgesultan-1409999.jpg" 
+        imgAlt="An awesome image" 
+        header="We do everything"
+        description="Just leave your ride with us and trust our experts to ensure top-notch service and performance. Drive away with confidence knowing your car is in great hands."
+      />
+
+      {/* Add the ref to the CardsPack section */}
+      <div ref={cardsPackRef} className="cardsPack">
+        <CardsPack />
+      </div>
+
+      <Footer />
+    </>
+  ); 
 }

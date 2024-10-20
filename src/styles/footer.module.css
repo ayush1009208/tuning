@@ -1,0 +1,37 @@
+/* src/styles/footer.module.css */
+
+.footer {
+  background-color: #2a2a2a; /* Darker gray */
+  color: #f1f1f1; /* Softer white for text */
+  text-align: center;
+  padding: 2rem 0;
+  position: relative;
+  width: 100%;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.socialIcons {
+  margin-top: 1rem;
+}
+
+.socialIcons a {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.icon {
+  color: #ccc; /* Color for the icons */
+  font-size: 1.5rem; /* Size of the icons */
+  transition: color 0.3s ease-in-out;
+}
+
+.socialIcons a:hover .icon {
+  color: #4CAF50; /* Green hover effect for icons */
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ccc;
+}
