@@ -5,7 +5,7 @@ export default function ContactForm() {
     <form className={styles.form}>
       <label className={styles.label}>Name</label>
       <input type="text" className={styles.input} />
-      //hIqWv8AiRvTElaFe6eyPLP9fjVO7MmPIS8klOCCceHnVy5KQ
+      
       <label className={styles.label}>Email</label>
       <input type="email" className={styles.input} />
       
